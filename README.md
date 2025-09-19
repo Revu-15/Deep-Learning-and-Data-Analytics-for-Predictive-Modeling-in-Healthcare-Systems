@@ -1,430 +1,746 @@
+<h1 align="center">DeepCareX: AI-based Healthcare System</h1>
 
-Welcome to PyHealth!
-====================================
-.. important::
+<h3 align="center">Revanth Reddy</h3>
+<h3 align="center">2025</h3>
 
-   * **Join our PyHealth Discord Community!** We are actively looking for contributors and want to get to know our users better! `Click here to join Discord <https://discord.gg/mpb835EHaX>`_
-   * **Signup for our mailing list!** We will email any significant PyHealth changes that are soon to come! `Click here to subscribe <https://docs.google.com/forms/d/e/1FAIpQLSfpJB5tdkI7BccTCReoszV9cyyX2rF99SgznzwlOepi5v-xLw/viewform?usp=header>`_
+---
 
-.. image:: https://img.shields.io/pypi/v/pyhealth.svg?color=brightgreen
-   :target: https://pypi.org/project/pyhealth/
-   :alt: PyPI version
+## Live Demo
+You can explore the live version of this project here:  
+[DeepCareX](https://deepcarex-latest.onrender.com/)
+
+---
+
+## 📝 Table of Contents
+
+- [Introduction](#intro)
+- [Objective](#obj)
+- [Literature Review](#LR)
+- [Methodology and Implementation Details](#MID)
+- [Algorithms Used For This Application](#Algo)
+- [Experimentation Setup and Results](#Exp)
+- [Use Cases](#cases)
+- [User Interfaace (UI)](#ui)
+- [Conclusion](#con)
+- [References](#ref)
+- [Project Presentation](#ppt)
+- [Installation](#install)
+- [Docker Deployment](#docker)
+- [Contribution](#contri)
+
+---
 
 
-.. image:: https://readthedocs.org/projects/pyhealth/badge/?version=latest
-   :target: https://pyhealth.readthedocs.io/en/latest/
-   :alt: Documentation status
+## **Introduction** <a name="intro"></a>
+
+Effective diagnosis of a disease is a significant need on a large scale. The development of a tool for early diagnosis and an efficient course of therapy is extremely difficult due to the complexity of the many disease mechanisms and underlying symptoms of the patient population. Some of these problems can be resolved by researchers, doctors, and patients thanks to machine learning (ML), a branch of artificial intelligence (AI).
+
+Artificial intelligence (AI) in the medical field largely focuses on creating algorithms and methods to assess if a system's behavior in diagnosing diseases is accurate. The sickness or disorders that account for a person's symptoms and indicators are identified by a medical diagnosis.
+
+## **Objectives** <a name="obj"></a>
+
+The objectives of this project is:
+
+1. **Identify diseases by analyzing symptoms.**
+   - Users need to input their required data according to the disease. This could be blood sugar levels, their x-ray scans, smoking history, and parameters as per the disease.
+
+2. **Generate output based on these parameters.**
+   - A person can also choose whether they wish to save their data or not.
+
+3. **Use deep learning and machine learning models.**
+   - Distinguish between symptoms that are similar but could be caused by different diseases. By taking into account a variety of symptoms and their combinations, this purpose is to give precise and targeted outcomes.
+
+4. **Provide the user with the choice to save the data for further use.**
+
+5. **Receive feedback from users.**
+   - Provision of weekly newsletters and other healthcare information.
+
+Some of the algorithms used in this project are XGBoost, Random Forest, Logistic Regression, CNN, etc.
+
+- **XGBoost (Extreme Gradient Boosting)** is an optimized distributed gradient boosting library designed for fast and scalable model training. It is an ensemble learning technique that combines predictions of multiple weak models to get stronger predictions.
+- **Random Forest** is a classifier that uses many decision trees on different subsets of the input dataset and averages the results to increase the dataset's predicted accuracy.
+- **Convolutional Neural Networks (CNNs)** are a subclass of deep learning models. Convolutional and pooling layers are examples of specialized layers used by CNNs to automatically learn hierarchical patterns and features from the input data.
+
+Average accuracy achieved throughout was above 90%.
+
+
+## **Literature Review** <a name="LR"></a>
+
+In M. Swathy and K. Saruladha's paper [1], the classification, data mining, machine learning, and deep learning models used to predict cardiovascular illnesses are compared and reported. Some of the points they noticed were that a better model with greater accuracy and performance can be produced by using more medically relevant features. Also, combining data and text mining with the current models can create effective prediction systems. Swarm intelligence techniques and genetic algorithms can be used to focus more on the feature selection and input parameters, which will increase execution. They also observed that, for 15 attributes, the Multi-layered perceptron with back propagation gives better results as compared to others.
+
+Based on the patient's clinical characteristics, the authors P. Rani et al. [2] suggest a hybrid decision support system that can help in the early detection of heart disease. To deal with the missing values, the authors employed the multivariate imputation by chained equations algorithms. The choice of appropriate features from the supplied dataset has been made using a hybridised feature selection approach that combines the Genetic approach (GA) and recursive feature elimination. SMOTE (Synthetic Minority Oversampling Technique) and common scalar approaches have also been employed for pre-processing the data. The authors used support vector machine, naive bayes, logistic regression, random forest, and adaboost classifiers in the final stage of creating the proposed hybrid system. With the random forest classifier, the system has been found to produce the most accurate results. The proposed hybrid system was put to the test in a Python-developed simulation environment. The system was tested on the Cleveland heart disease dataset available at UCI (University of California, Irvine) machine learning repository. It gave an accuracy of 86.6%.
+
+S. Afzal, et al. [3] did a review study of Alzheimer's based on the classification of cognitive impairment and neuroimaging. This study offers a thorough analysis of the published research on AD, particularly computer-aided diagnosis. The imaging modalities are:
+1. Magnetic resonance imaging (MRI)
+2. fMRI, or functional MRI
+3. Diffusion tensor imaging
+4. Amyloid-PET
+5. Positron emission tomography (PET)
+
+According to the study, using a classification criterion based on features can better diagnose the condition and advance its clinical course. Support Vector Machine, Bayesian Classifiers, Linear Discriminant Analysis, K-Nearest Neighbour, and Deep Learning are some of the most often used machine learning classifiers for diagnosing AD.
+
+P. Gokila Brinddha [4] applied ANN and CNN on MRI images of the brain to detect the presence of a brain tumour and analysed the performance. The ANN model gave a training accuracy of 97.13% and validation accuracy of 71.51% for 50 epochs. The testing accuracy achieved by the model was 65.21%. Meanwhile, the CNN model gave a testing accuracy of 89%.
+
+Dheiver and Ewerton Santos [5] used MobileNetV2 to detect brain tumours. MobileNetV2 is a 53-layer deep CNN pre-trained model which is trained on almost a million images from the ImageNet database. It gave a validation accuracy of 89.24%.
+
+In this study, M. Jyotiyana and N. Kesswani [6] used the National Alzheimer's Coordinating Centre (NACC) database to categorise patients with Alzheimer's disease using random forest (RF), support vector machine (SVM), K-nearest neighbour (KNN), linear discriminate analysis (LDA), and neural networks (NN). They also classified MRI data using a multi-layer perceptron (MLP), and the results showed that it was the most accurate method with 94% precision. MLP is able to handle large and complicated real-world data sets since it can operate on input variables simultaneously.
+
+D. Yang, et al. [7] investigated several deep learning enhanced techniques and applied them to X-ray and CT scan images to detect COVID-19. Four pre-trained CNN models were used in this paper for classification of COVID-19. They are VGG16, DenseNet121, ResNet50, and ResNet152. They proposed a Fast.AIResNet Framework to automatically find the best training parameters, pre-process the data, and find the best architecture. The F1-score and accuracy for the diagnosis of COVID-19 using CT scan images were both over 96%. In order to overcome the difficulty of lack of data and reduce the training period, they also used transfer learning techniques. Enhanced VGG16 deep transfer learning architecture was used to complete the binary and multi-class classification of X-ray image tasks. The enhanced VGG16 detected COVID-19 with an accuracy score of 99%. Compared to other relevant approaches in their literature review, the suggested methods produce superior COVID-19 diagnostic outcomes.
+
+By combining a DNN (deep neural network) model with two ML models for illness prediction using laboratory test data, D. Park, et al. [8] hoped to create a new, improved ensemble model. Based on value counts, clinical importance-related characteristics, and missing values, 86 attributes (laboratory tests) were chosen from datasets. On 5145 cases, they gathered sample datasets, which included 326,686 laboratory test results. Based on the International Classification of Disorders, 10th Revision (ICD-10) codes, they examined a total of 39 distinct disorders. These datasets were used to build DNN models using TensorFlow and the light gradient boosting machine (LightGBM) and extreme gradient boosting (XGBoost) ML models. For the five most prevalent illnesses, the optimised ensemble model had a prediction accuracy of 92% and an F1-score of 81%. The prediction abilities and patterns for the classification of diseases between the deep learning and ML models were different. Utilising a confusion matrix and the SHAP value method, they examined the significance of each feature. Through the classification of diseases, their new ML model successfully predicted diseases with a high degree of accuracy.
+
+R. Keniya, et al. [9] created a system for predicting diseases using several ML algorithms. More than 230 diseases were present in the dataset that was processed. The diagnosis method outputs the ailment that a person may be suffering from based on the symptoms, age, and gender of the individual. In comparison to the other algorithms, the weighted KNN algorithm produced the best results. The weighted KNN algorithm gave a prediction accuracy of 93.5%.
+
+K. Saxena, et al. [10] created a web application for non-transmissible diseases that can be easily used by someone with just a little medical training, making early disease prediction possible. Their system includes image capture, image preprocessing, segmentation, feature extraction, and classification of disease. If the associated disease parameters are correctly understood, the web application can identify many diseases, including cancer, diabetes, heart disease, liver disease, renal diseases, malaria, and pneumonia. They achieved an accuracy of 94% using their proposed Faster CNN.
+
+S. K. Sarangi [11] proposed a deep learning framework to detect diseases which include the stages: The suggested framework's phases are as follows: 
+1. Generating data for use in medicine
+2. Utilising natural language processing to enhance unstructured data
+3. Utilising deep learning to find patterns in massive datasets
+4. Making medical decisions
+
+Their proposed framework gave an average accuracy of 90.8%.
+
+In the paper of D. Varshni, et al. [12] evaluate how well pre-trained CNN models perform as feature-extractors used in conjunction with various classifiers to identify abnormal and normal chest X-rays. They use analysis to choose the best CNN model for the job. According to statistical findings, pre-trained CNN models combined with supervised classifier algorithms can be highly helpful for analysing chest X-ray pictures, particularly when trying to find pneumonia. They assessed the performance of pre-trained CNN models including Xception, VGG16, VGG-19, ResNet-50, DenseNet-121, and DenseNet-169 followed by other classifiers like Random Forest, K-nearest neighbours, Naive Bayes, and Support Vector Machine (SVM). ResNet-50 CNN model with depth 168 with SVM classifier was shown to perform better than all other pre-trained CNN models, with an AUC score of 0.7749.
+
+In the proposed work of D. Kumar G, et al. [13] used data pre-processing methods like removing noisy data, removing missing data and classification of attributes for prediction and decision making at various levels. In order to diagnose or raise awareness of heart disease, this research suggests a prediction model to determine whether a person has the condition or not. To present an appropriate model for predicting cardiovascular illness is done by comparing the accuracies of applying rules to the individual findings of Support Vector Machine, Gradient Boosting, Random forest, Naive Bayes classifier, and logistic regression on the dataset gathered in a region. Most of the algorithms gave good results, but logistic regression achieved the highest accuracy of 91.61%.
+
+D. K. Rathore and P. K. Mannepalli [14] proposed a model for supervised classification experiment evaluation to assess how well the proposed method classified the data. The work was completed in a number of steps, starting with the uploading or importing of datasets, followed by data preprocessing to remove missing data or identify values, feature selection method application to extract data for disease identification, and finally the classification phase.
+
+The study of R. Bharti, et al. [15] compares the findings and analysis of the UCI Machine Learning Heart Disease dataset using a variety of machine learning algorithms and deep learning techniques. The dataset has 14 key features that are needed to do the analysis. The dataset contains a few unimportant characteristics that are handled using Isolation Forest, and data is also normalised for improved results. Various promising findings are obtained and are confirmed using accuracy and confusion matrix. They used various approaches which included:
+1. With feature selection and outlier detection
+2. Without feature selection and outlier detection
+3. Deep learning approach
+
+94.2% accuracy was achieved using a deep learning method.
+
+M. O. Edeh, et al. [16] constructed an AI-based ensemble model for predicting Hepatitis C illness in patients with the ability to predict advanced fibrosis by combining clinical data and blood biomarkers after studying several types of machine learning algorithms to build the classification models. A wide range of Hepatitis C disease-related parameters were included in the dataset. Three machine learning techniques were used on the training data set, and the verified data was then utilised to assess the ensemble learning-based prediction model. The findings showed that, in comparison to the prevailing machine learning methods, the suggested ensemble learning model has been found as being more accurate. The most accurate learning strategy was the Multi-layer Perceptron (MLP) method (94.1% accuracy). The second-most accurate learning algorithm was the Bayesian network (94.47% accuracy). The accuracy increased to a level of 95.59%. The study showed that employing an ensemble model rather than a single algorithm provides higher precision or accuracy in predicting Hepatitis C illness.
+
+Here's the formatted version of your content in Markdown:
+
+In this article, deep learning techniques for illness prediction are reviewed. Z. Yu, et al. [17] separated the algorithms into two categories: algorithms for structured data and algorithms for unstructured data. ANN and FM-Deep Learning algorithms are examples of structured data algorithms. Algorithms for unstructured data include CNN, RNN, etc. The theory, history of development, and use of these algorithms in illness prediction are explained in this study. Additionally, their review listed a number of issues with current disease research, including:
+1. Poor capacity to interpret
+2. Data inequality
+3. Poor data quality
+4. Insufficient data
+
+Dr C. K. Gomathy [18] created a system that processed the symptoms that the user gives as inputs and gives the probability of disease as output. The prediction of the illness is done using the supervised machine learning method known as the Naive Bayes classifier. The Naive Bayes method determines the likelihood of the illness. They also forecasted illnesses like Diabetes, Malaria, Jaundice, Dengue, and Tuberculosis using linear regression and decision trees. Decision tree gave an accuracy of 84.5% and Naïve Bayes 89.4%. SVM gave an accuracy score of 96.49% while Random Forest gave the highest accuracy of 98.95%.
+
+O. E. Santangelo's, et al. [19] study's objective is to demonstrate if machine learning can be used to anticipate infectious disease outbreaks in advance. The Cochrane Collaboration's recommendations for systematic reviews, meta-analyses of observational studies in epidemiology, and recommended reporting items were all followed in the conduct of this study. The research examined in this systematic review show that it is feasible to forecast the prevalence and development of various infectious illnesses; by integrating a number of machine learning methods and approaches, it is possible to get findings that are precise and tenable.
+
+A. K. Dwivedi [20] realized that it was crucial to develop a framework that can quickly and accurately identify the prevalence of heart disease in hundreds of samples. Six machine learning approaches were tested at this point for their ability to predict cardiac disease. These algorithms' performance was evaluated using eight different classification performance metrics. Additionally, the receiver operating characteristic curve was used to evaluate these methods. With a sensitivity and specificity of 89 and 81%, respectively, logistic regression was shown to have the greatest classification accuracy of 85%.
+
+
+## **Methodology and Implementation Details** <a name="MID"></a>
+
+The ability for a computer to automatically learn from data, enhance performance based on prior experiences, and make predictions is known as machine learning. A collection of algorithms used in machine learning operate on vast amounts of data. These algorithms are fed data to train them, and after training, they develop a model and carry out a certain task.
+
+Machine learning is primarily split into four kinds based on the techniques and modes of learning, which are:
+
+1. **Supervised Machine Learning**
+
+   > Supervised machine learning, as its name indicates, is based on supervision. The "labelled" data is used to train the machines in the supervised learning approach, and after the training, the computer predicts the outcome. The primary objective of the supervised learning approach is to map the input (x) variable with the output (y). Risk assessment, fraud detection, spam filtering, and other practical uses of supervised learning include these. Problems with supervised machine learning may be divided into two categories, which are: Regression and Classification. In order to tackle classification issues when the output variable is categorical, classification algorithms are utilised. Regression problems with a linear relationship between the input and output variables are solved using regression techniques.
+
+2. **Unsupervised Machine Learning**
+
+   > Unsupervised learning differs from the supervised learning method in that no supervision is required. This indicates that in unsupervised machine learning, the computer is taught using the unlabelled dataset and makes output predictions without any human supervision. Unsupervised learning uses data that has neither been categorised nor labelled to train models, which then act on that data autonomously. The primary objective of the unsupervised learning method is to classify or group the unsorted dataset in accordance with the patterns, trends, and differences.
+   >
+   > Unsupervised categories for learning are clustering and association. When looking for the innate groups in the data, we use the clustering technique. It is a method of clustering the items such that those who have the most similarities stay in one group and share little to none in common with those in other groups. The unsupervised learning method called association rule learning identifies intriguing relationships between variables in a sizable dataset. This learning algorithm's primary goal is to identify the dependencies between data items and then map the variables in a way that maximises profit.
+
+3. **Semi-Supervised Machine Learning**
+
+   > Between supervised and unsupervised machine learning, there is a form of method known as semi-supervised learning. It employs a combination of labelled and unlabelled datasets during the training phase and stands in the middle of supervised learning (with labelled training data) and unsupervised learning (without labelled training data) techniques.
+
+4. **Reinforcement Learning**
+
+   > With reinforcement learning, an AI agent (a software component) automatically explores its surroundings by hitting and trailing, acting, learning from experiences, and improving performance. Reinforcement learning operates on a feedback-based process. The objective of a reinforcement learning agent is to maximise the rewards since the agent is rewarded for every good activity and penalised for every negative one. In contrast to supervised learning, reinforcement learning relies solely on the experiences of the agents.
+
+## **Algorithms Used For This Application** <a name="Algo"></a>
+
+Many techniques were used for data processing and various supervised algorithms were tested to predict the outcome, out of which the best one was used as the final model. Various methods for data cleaning were used, for example, filling the missing values with suitable values according to data. The categorical variables were converted to numeric using the One hot encoder and Label encoder features in Python's sklearn library. The following algorithms were used to predict the diseases.
+
+### **1. Logistic Regression**
+
+One of the most often used Machine Learning algorithms, within the category of Supervised Learning, is logistic regression. Using a predetermined set of independent variables, it is used to predict the categorical dependent variable.
+
+In a categorical dependent variable, the output is predicted by logistic regression. As a result, the result must be a discrete or categorical value. Rather than providing the precise values of 0 and 1, it provides the probabilistic values that fall between 0 and 1. It can be either Yes or No, 0 or 1, true or false, etc.
+
+Logistic regression fits an "S" shaped logistic function, which predicts two maximum values (0 or 1). The threshold value idea in logistic regression sets the likelihood of either 0 or 1. For instance, include values that incline to 1 over the threshold value and to 0 below it.
+
+![Logistic Regression in Machine
+Learning](./media/image1.png)
+
+Based on the categories, there are three different types of logistic regression:
+
+- **Binomial**: 0 or 1, Pass or Fail, etc., are the only two conceivable forms of dependent variables in a binomial logistic regression.
+- **Multinomial**: In multinomial logistic regression, the dependent variable may be one of three or more potential unordered kinds.
+- **Ordinal**: In ordinal logistic regression, the dependent variables can be categorised into one of three potentially ordered classes, such as "low," "Medium," or "High".
+
+### **2. Decision Tree**
+
+A supervised learning method called a decision tree can be used to solve classification and regression issues. It is a tree-structured classifier, where internal nodes represent a dataset's characteristics, branches for the decision-making process, and each leaf node for the classification result. The Decision Node and Leaf Node are the two nodes of a decision tree. While Leaf nodes are the results of decisions and do not have any additional branches, Decision nodes are used to make decisions and have multiple branches. The provided dataset's characteristics are used to execute the test or make the judgements. It is a graphical form for gathering all potential responses to a problem or decision based on conditions of data.
+
+![Decision Tree Classification
+Algorithm](./media/image2.png)
+
+In a decision tree, the algorithm begins at the root node and works its way up to forecast the class of the provided dataset. This algorithm follows the branch and jumps to the following node by comparing the values of the root attribute with those of the actual dataset attribute. The algorithm compares the attribute value with the other sub-nodes once again for the following node before continuing. It keeps doing this until it reaches the tree's leaf node.
+
+The fundamental problem that emerges while developing a decision tree is choosing the most suitable attribute for the root node and sub-nodes. So, an attribute selection measure, or ASM, can solve these issues. There are two widely used ASM approaches, which are Information Gain and Gini Index.
+
+Following the segmentation of a dataset based on an attribute, information gain is the measurement of changes in entropy. It figures out how much knowledge a feature gives us about a class. We divide the node and create the decision tree based on the value of the information gained. Entropy is a metric used to evaluate the impurity of a certain property. It represents data randomness.
+
+The CART (Classification and Regression Tree) technique uses the Gini index as a measure of impurity or purity while building decision trees. An attribute with a low Gini index is preferable to one with a high Gini index.
+
+### **3. Random Forest**
+
+The supervised learning method includes the well-known machine learning algorithm, Random Forest. It can be applied to ML Classification and Regression issues. Its foundation is the idea of ensemble learning, which is the process of integrating various classifiers to address a difficult issue and enhance the performance of the model. Random Forest uses a number of decision trees on different subsets of the input dataset and averages the results to increase the dataset's predicted accuracy. Instead of depending on a single decision tree, the random forest uses forecasts from all of the trees to anticipate the outcome based on which predictions received the most votes.
+
+Higher accuracy can be achieved if the number of trees is increased.
+
+![Random Forest Algorithm](./media/image3.png)
+
+### **4. XGBoost**
+
+The Python XGBoost package implements gradient-boosted decision trees with a focus on speed and execution, which is the most crucial component of ML (machine learning). Gradient Boosting is an AI technique that is used, among other things, in classification and regression assignments. It presents a forecast model as a group of weak decision trees for forecasting.
+
+#### Functioning of XGBoost:
+
+- The loss function must be improved, which means making it smaller than the outcome.
+- Weak learners get used in the model to set expectations.
+- In this, decision trees are used in a manner, which refers to choosing the best-divided targets in light of Gini Impurity and other factors or to restrict the loss function.
+- The loss function is constrained by combining all of the weak models using the additive model.
+- Each tree is added, making sure that no already existing trees in the decision tree are modified. The ideal hyper bounds are regularly discovered using the angle plummet procedure, after which more loads are refreshed.
+
+### **5. Support Vector Machines**
+
+One of the most well-liked supervised learning algorithms, Support Vector Machine, or SVM, is used to solve Classification and Regression problems. However, it is primarily employed in Machine Learning Classification problems.
+
+The SVM algorithm's objective is to establish the optimal line or decision boundary that divides n-dimensional space into classes, allowing us to quickly classify fresh data points in the future. A hyperplane is the name given to this optimal decision boundary.
+
+SVM selects the extreme vectors and points which help in the creation of the hyperplane. Support vectors, which are used to represent these extreme instances, form the basis for the SVM method.
+
+![Support Vector Machine
+Algorithm](./media/image4.png)
+
+There are two types of SVM:
+
+- **Linear SVM**: Linear SVM is applied for data that can be divided into two classes using a single straight line. This type of data is called linearly separable data, and the classifier employed is known as a Linear SVM classifier.
+- **Non-linear SVM**: Non-Linear SVM is a method of classification for non-linearly separated data. If a dataset cannot be categorised using a straight line, it is considered non-linear data, and the classifier employed is referred to as a Non-linear SVM classifier.
+
+### **6. Convolutional Neural Networks**
+
+One of the primary categories used in neural networks for image recognition and classification is the convolutional neural network.
+
+CNN accepts an image as input and categorises and processes it using terms like "dog," "cat," "lion," "tiger," etc. The resolution of the image affects how the computer interprets it as an array of pixels. It will perceive as h \* w \* d, where h = height, w = width, and d = dimension, depending on the image resolution. For instance, a grayscale image is a matrix array of 4 \* 4 \* 1, while an RGB image is a matrix array of 6 \* 6 \* 3.
+
+Each input image in CNN is processed by a series of convolutional layers, pooling layers, fully connected layers, and filters (sometimes referred to as kernels). The first layer to extract features from an input image is the convolution layer. The convolutional layer maintains the link between pixels by learning visual properties using a tiny square of input data. Using an image matrix and a kernel or filter as two inputs, it performs a mathematical action. By adding filters, the convolution of an image can perform an operation such as blur, sharpen, and edge detection.
+
+The pooling layer is crucial to the pre-processing of a picture. When the photos are too big, the pooling layer minimises the number of parameters. "Downscaling" the picture acquired from the prior layers is pooling. It is comparable to reducing the size of an image to lessen its pixel density. Downsampling or subsampling are other terms for spatial pooling, which minimises the dimensionality of each map while keeping the crucial data. The input from the other levels will be flattened into a vector and transmitted to the fully connected layer. The output will be changed by the network into the desired number of classes.
+
+The input from the other levels will be flattened into a vector and transmitted to the fully linked layer. The output will be changed by the network into the desired number of classes. To categorise the outputs as a vehicle, dog, truck, etc., the characteristics to build a model will be aggregated and then an activation function, such as softmax or sigmoid will be applied.
+
+![Convolutional Neural
+Network](./media/image5.png)
+
+![Convolutional Neural
+Network](./media/image6.jpeg)
+
+#### In this project, a simple CNN network was used to predict the outcome for two diseases.
+
+**The summary of the model for predicting Alzheimer's is:**
+
+![](./media/image7.png)
+
+![](./media/image8.png)
+
+![](./media/image9.png)
+
+**The summary of the model used to predict the outcome of Kidney disorder is:**
+
+![](./media/image10.png)
+
+![](./media/image11.png)
+
+![](./media/image12.png)
+
+![](./media/image13.png)
+
+
+## **7. Transfer Learning Models**
+
+Transfer learning is a machine learning research subject that is concerned with the storage of information obtained while resolving one problem and its subsequent application to another, related problem. Transfer learning is the ability to retain the knowledge gained from addressing one problem and apply it to a different one later on. With transfer learning, models are created utilising prior knowledge that demonstrates greater effectiveness and learns more quickly with less training data. The nicest thing about transfer learning is that just a portion of the trained model has to be learned in order to use it. Transfer learning helps us do this while saving time.
+
+### **DenseNet201**
+
+The Dense Convolutional Network (DenseNet) feeds forward connections between every layer. They reduce the number of parameters significantly, enhance feature propagation, increase feature reuse, and solve the vanishing-gradient problem.
+
+> DenseNet is based on the premise that convolutional networks may be trained to be significantly deeper, more precise, and more effective if the connections between the layers near the input and the layers near the output are shorter. DenseNet-201 is 201 layers deep. The ImageNet database contains a pretrained version of the network that has been trained on more than a million images. The pretrained network can categorise photos into 1000 different item categories, including several animals, a keyboard, a mouse, and a pencil.
+>
+> DenseNet201 was used to predict the outcome for disease Pneumonia. The summary is given below:
+>
+> ![](./media/image14.png)
+>
+> ![](./media/image15.png)
+
+### **ResNet152V2**
+
+Residual Neural Network (ResNet152V2) is a convolutional neural network with 152 layers in it. ResNet employs skip connections to fit the output from one layer to the next in order to address the issue of disappearing gradients. There are numerous convolutional layers and max pooling layers in this pretrained model.
+
+> ResNet152V2 was used to predict the outcome of COVID-19. The summary of the model is:
+>
+> ![](./media/image16.png)
+>
+> ![](./media/image17.png)
+
+### **VGG19**
+
+The Visual Geometry Group (VGG) at the University of Oxford created the convolutional neural network architecture known as VGG19. It is a deep learning model with 19 layers, 16 of which are convolutional and 3 of which are fully connected.
+
+> The over-a-million-image ImageNet dataset served as the training set for VGG19, which is a model for image classification tasks. Small (3x3) convolutional filters are used across the whole network to create the architecture, which results in a highly deep but uniformly basic and straightforward design. Following the convolutional layers are the max-pooling layers, which lower the feature maps' spatial resolution and boost their translational resilience.
+>
+> To detect Brain Tumour VGG19 was used.
+>
+> ![](./media/image18.png)
+>
+> ![](./media/image19.png)
+
+These algorithms were used to make the appropriate predictions for the diseases.
+
+## **Experimentation Setup and Results** <a name="Exp"></a>
+
+Using HTML, Bootstrap, and Flask, eight webpages were created for the diseases. Bootstrap offers a selection of JavaScript, CSS, and HTML building blocks that may be used to create web interfaces. Python-based Flask is a compact and adaptable web framework. It is made to be straightforward, simple to use, and offers the necessities for web development. Flask is adaptable and compatible with multiple hosting settings since it adheres to the WSGI (Web Server Gateway Interface) protocol and may operate on different web servers.
+
+Also, a sqlite3 database is added to store the information of the user.
+
+### **A. Tools Used:**
+
+- **IDE:** Vscode, Jupyter Notebook
+- **Platform:** Anaconda
+- **Browser:** Microsoft Edge, Google browser (Tested On)
+- **Languages:** Python 3.9, HTML, CSS
+- **Framework:** Bootstrap v5.3.0-alpha, Tensorflow 2.9, Keras, Flask
+- **Database:** sqlite3
+- **Libraries:**
+  1. numpy
+  2. pandas
+  3. scikit-learn
+  4. matplotlib
+  5. os
+  6. scipy
+  7. seaborn
+  8. xgboost
+  9. joblib
+  10. pickle
+
+### **B. Datasets and Sources:**
+
+1. **For Alzheimer's:** Augmented Alzheimer MRI Dataset V2 <https://www.kaggle.com/datasets/uraninjo/augmented-alzheimer-mri-dataset-v2>
+2. **For Brain Tumor:** Brain Tumor MRI Dataset <https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset>
+3. **For Breast Cancer:** Breast Cancer Prediction Dataset <https://www.kaggle.com/datasets/merishnasuwal/breast-cancer-prediction-dataset>
+4. **For Covid-19:** COVID 19 XRay and CT Scan Image <https://www.kaggle.com/datasets/ssarkar445/covid-19-xray-and-ct-scan-image-dataset>
+5. **For Diabetes:** Diabetes prediction dataset <https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset?resource=download>
+6. **For Hepatitis C:** Hepatitis C Prediction Dataset <https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset>
+7. **For Kidney Disease:** CT KIDNEY DATASET: Normal-Cyst-Tumor and Stone <https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone>
+8. **For Pneumonia:** Chest X-Ray Images (Pneumonia) <https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia>
+
+### **C. Features of Project**
+
+1. Home page with Register/Log-in.
+2. Individual pages for each of the 8 diseases. The user can input the symptoms and get the result as required.
+3. On these pages, there is an option to save one's data. This data will then be stored in the database.
+4. The result report will be displayed on the output page.
+5. About Us page -- where information is provided about this system.
+6. Contact Us page -- To send queries.
+
+### **D. Directory Tree**
+
+**DeepCareX - (ROOT)**
+
+1. **Datasets** -- Consists of 8 datasets of diseases.
+2. **Model_Code** -- Python codes for model generation of 8 diseases.
+3. **Models** -- Saved deep learning and machine learning models in '.hdf', '.h5', and '.pkl' format.
+4. **The frontend of the project consists of:**
+   - **database:**
+     1. Consists of a python script to create databases and its table.
+     2. Consists of the sqlite3 database.
+     3. A folder named "Uploaded" which saves all the images uploaded via frontend.
+   - **static:**
+     1. Images: consists of images which have been used for the frontend design.
+     2. bootstrap-5.3.0-alpha3-dist: Installed bootstrap.
+     3. bootstrap-icons-1.10.5: Installed bootstrap icon.
+     4. jquery: consists of jquery-3.6.4.min.js script.
+     5. popper: consists of popper.min.js.
+   - **templates:** Consists of all the HTML files for frontend.
+   - **main.py:** It's the main python script to run the application, designed using the Flask framework.
+
+
+### **E. Instructions to Run:**
+
+#### Run The Application:
+
+1. **Create the databases:**
+   - Navigate to: `DeepCareX/Website/database`
+   - Run: `database.py`
+   - Syntax: `python3 database.py`
+
+2. **Run The Application:**
+   - Navigate to: `DeepCareX/Website`
+   - Run: `main.py`
+   - Syntax: `python3 main.py`
+
+
+### The algorithms gave us good results. We will now go through the evaluation metrics obtained for each disease.
+
+### I. **Breast Cancer**
+
+> The Random Forest algorithm was used to determine if a person had breast cancer. GridSearchCV was used to determine the best number of estimators and depth for the model. Using this, we chose max depth as 90 and the number of estimators as 500. The metrics used to evaluate the model's performance were Precision, Recall, F1 score, and Accuracy. The model gave a validation accuracy of 0.94, precision score of 0.94, recall of 0.94, and f1 score of 0.94.
+>
+> The training evaluation metrics are:
+>
+> ![](./media/image20.png)
+>
+> The validation metrics are as follows:
+>
+> ![](./media/image21.png)
+
+### II. **Diabetes**
+
+> XGBoost Classifier was used to predict if a user had Diabetes. The model gave a validation accuracy of 0.97. Precision, recall, and f1 score were also 0.97.
+>
+> The evaluation metrics on training data were:
+>
+> ![](./media/image22.png)
+>
+> The validation metrics observed are:
+>
+> ![](./media/image23.png)
+
+### III. **Hepatitis C**
+
+> Hepatitis C was also predicted using XGBoost Classifier. The training metrics of the model observed are:
+>
+> ![](./media/image24.png)
+>
+> The validation metrics are:
+>
+> ![](./media/image25.png)
+
+### IV. **Brain Tumour**
+
+> Here VGG19 was used. The model gave a training accuracy of 0.98 and validation accuracy of 0.97.
+>
+> The graphical representation of change in accuracy and loss with the epochs is given below.
+>
+> ![](./media/image28.png)
+>
+> ![](./media/image29.png)
+
+### V. **COVID-19**
+
+> ResNet152V2 was used to determine COVID-19. The model gave a training accuracy of 0.98 and validation accuracy of 0.95.
+>
+> The accuracy plot and loss plot are given below:
+>
+> ![](./media/image30.png)
+>
+> ![](./media/image31.png)
+
+### VI. **Alzheimer's**
+
+> To predict Alzheimer's, a Vanilla CNN network was created, the summary of which is mentioned in the Convolution Neural Network section.
+>
+> The model gave a training accuracy of 0.97 and validation accuracy of 0.98.
+>
+> The accuracy and loss are illustrated below:
+>
+> ![](./media/image32.png)
+>
+> ![](./media/image33.png)
+
+### VII. **Kidney Disorder**
+
+> To predict kidney disorder, a CNN network was created. The model gave a 0.99 training accuracy and 0.97 validation accuracy.
+>
+> The accuracy and loss graphs are:
+>
+> ![](./media/image34.png)
+>
+> ![](./media/image35.png)
+
+### VIII. **Pneumonia**
+
+> DenseNet201 was used here and it gave a training accuracy of 0.98 and validation accuracy of 0.83. The accuracy and loss illustrations are given below:
+>
+> ![](./media/image36.png)
+>
+> ![](./media/image37.png)
+
+
+## **Use Cases** <a name="cases"></a>
+
+The employment of these technologies can produce quick results within minutes, although real-life diagnosis might frequently take hours or even days. When given a set of symptoms, a trained model can quickly process and analyse the data, utilising its capacity to identify intricate patterns and make predictions based on learnt patterns from enormous amounts of data.
+
+Machine and deep learning-based diagnostics' time-saving feature is especially helpful in emergency situations, where prompt decision-making is essential for giving prompt treatment. The possibility of saving lives and reducing the danger of illness development is increased by rapid diagnosis, which enables prompt therapies.
+
+Additionally, the capacity to store symptom information and associated diagnoses from various individuals might be extremely beneficial for research. By combining this data, it is possible to analyse patterns and trends on a broader scale and find correlations, risk factors, and fresh perspectives on various diseases. These datasets can be used by researchers to increase understanding, create more precise models, and boost medical research and healthcare procedures.
+
+## **User Interface (UI)** <a name="ui"></a>
+
+### Home page:
+
+![](./media/image38.png)
+
+![](./media/image39.png)
+
+![](./media/image40.png)
+
+### About Us
+
+![](./media/image41.png)
+
+### Contact
+
+![](./media/image42.png)
+
+### Login
+
+![](./media/image43.png)
+
+### After Registration/Login
+
+#### Alzheimer's
+
+![](./media/image44.png)
+
+#### Breast Cancer
+
+![](./media/image45.png)
+
+#### Brain Tumor
+
+![](./media/image46.png)
+
+#### Covid-19
+
+![](./media/image47.png)
+
+#### Diabetes
+
+![](./media/image48.png)
+
+#### Hepatitis C
+
+![](./media/image49.png)
+
+#### Pneumonia
+
+![](./media/image50.png)
+
+#### Kidney Disease
+
+![](./media/image51.png)
+
+### Result for Kidney Disease
+
+![](./media/image52.png)
+
+![](./media/image53.png)
+
+
+## **Conclusion** <a name="con"></a>
+
+With the use of machine learning models, which are employed in the project to forecast the disease based on input provided by the user as a content of symptoms which are picked from a specified list of symptoms provided to the user, the predicted outcome is presented. The projected consequence observed will also have a user interface (UI), making it simpler for a user to operate and forecast the disease based on information given and making the process easier to complete.
+
+In conclusion, using machine learning and deep learning methods for illness prediction has demonstrated enormous potential for enhancing patient outcomes. These algorithms may accurately detect early indicators and forecast the chance of acquiring particular diseases through the analysis of vast datasets and the extraction of relevant patterns.
+
+Researchers and medical professionals have been able to predict diseases with great accuracy by using machine learning algorithms like decision trees, random forests, support vector machines, and convolutional neural networks (CNNs). To produce insightful analyses and individualised forecasts, these models may analyse a variety of data types, including medical records, genetic data, lifestyle factors, and environmental data.
+
+Using deep learning and machine learning to forecast diseases has several advantages. The first benefit is that it makes it possible for preventive healthcare interventions, allowing for early diagnosis and treatment, possibly improving patient outcomes, and lowering healthcare expenditures. Identifying high-risk people or communities also helps with resource allocation by enabling focused treatments and preventative actions.
+
+It's crucial to remember that illness prediction models have some drawbacks. They rely significantly on the representativeness and quality of the training data, which can create biases and affect prediction accuracy. Furthermore, these models might be difficult to interpret, making it tough for medical experts to comprehend the logic behind a given forecast.
+
+## **Future Work**
+
+There is a lot of room for improvement and growth with this project. The system may be made even more complete and beneficial for users by adding further functions. Here are some ideas about how to make the project better:
+
+### **Expanded Disease Database**
+
+You can think about growing the illness database to offer a more comprehensive diagnosing capability. To cover a wider variety of medical issues, do more research and add more disorders. Users will be able to get early diagnosis and intervention for a variety of health concerns because of this.
+
+### **Integration with Healthcare Professionals**
+
+It would be really helpful to implement a function that links users with nearby medical professionals or consultants who are experts in the ailment that has been identified. The technology can enable smooth communication and appointments with healthcare providers by using location-based services and collaborating with physicians and hospitals. Users would obtain prompt and individualised medical care because of this connectivity.
+
+### **Advanced Predictive Models**
+
+It is critical to continuously enhance the machine learning models used for illness prediction. Investigate more cutting-edge algorithms and methods, such as ensemble models, deep learning, or reinforcement learning, to create prediction models that are more reliable and precise. As a result, the system's diagnoses will be more accurate and reliable, improving user effectiveness.
+
+### **Complete Diagnostic Reports**
+
+Consider adding extra output or report sections to provide consumers more in-depth information about the diagnosis rather than just offering simple result labels. Include further information, such as the causes of the diagnosis, danger factors, suggested cures, and safety precautions. Users will have more knowledge of their health issues as a result, which will help them take the right steps.
+
+### **Accessibility and User-Friendly Design**
+
+Ensure that the application's interface is simple and easy to use. To reach a larger user base, make sure the system is usable on a variety of platforms and devices, including mobile ones. Include elements like custom user profiles, monitoring of medical history, and alerts for scheduled appointments or medicines.
+
+### **Data Security and Privacy**
+
+Give data privacy and security top priority because the project will be working with sensitive health information. Implement strong security measures, maintaining data protection laws, and following confidentiality requirements to secure user data.
+
+The project can develop into a complete and trustworthy health prediction and diagnosis system by putting these improvements into place. Users will be given the information they need to make wise decisions about their health, it will link them together with qualified healthcare professionals, and it will help with illness early detection and prevention.
+
+
+## **References** <a name="ref"></a>
+
+\[1\]. M. Swathy and K. Saruladha, "Comparative study of classification and prediction of Cardio-Vascular Diseases (CVD) using Machine Learning and Deep Learning techniques", ICT Express 8 (2022) 109--116, Science Direct, 2022.
+
+\[2\]. P. Rani, R Kumar, N. M. O. S. Ahmed, A. Jain, "A decision support system for heart disease prediction based upon machine learning", Journal of Reliable Intelligent Environments, Springer Nature Switzerland AG 2021.
+
+\[3\]. S. Afzal, M. Maqsood, U. Khan, I. Mehmood, H. Nawaz, F. Aadil, O. Young Song, Y. Nam, "Alzheimer Disease Detection Techniques and Methods: A Review", International Journal of Interactive Multimedia and Artificial Intelligence, Vol. 6, Nº7, 2022.
+
+\[4\]. P. G. Brindha, M Kavinraj, P. Manivasakam, P. Prasanth, "Brain tumor detection from MRI images using deep learning Techniques", 2021 IOP Conf. Ser.: Mater. Sci. Eng. 1055 012115.
+
+\[5\]. Dheiver Santos and Ewerton Santos, "Brain Tumor Detection Using Deep Learning", 1BRIDGE -- Instituto de Tecnologia e Pesquisa, Estado / UF: Sergipe / SE Município: Aracaju Bairro: Getúlio Vargas Logradouro: Rua São Cristóvão Número: 1361 Complemento: CEP: 49.055-620.
+
+\[6\]. M. Jyotiyana and N. Kesswani, "Classification and prediction of Alzheimer's disease using multi-layer perceptron", Int. J. Reasoning-based Intelligent Systems, Vol. 12, No. 4, 2020.
+
+\[7\]. D. Yang, C. Martinez, L. Visuña, H. Khandhar, C. Bhatt & J. Carretero, "Detection and analysis of COVID‑19 in medical images using deep learning techniques", Scientific Reports, Nature Portfolio, (2021) 11:19638.
+
+\[8\]. D. Park, M. Park, H. Lee, Y. Kim, Y. Kim & Y. Hoon Park, "Development of machine learning model for diagnostic disease prediction based on laboratory tests", Scientific Reports, Nature Portfolio, (2021) 11:7567.
+
+\[9\]. R. Keniya, A. Khakharia, V. Shah, V. Gada, R. Manjalkar, T. Thaker, M. Warang, N. Mehendale, "Disease prediction from various symptoms using machine learning", SSRN.
+
+\[10\]. Ms. K. Saxena, R. Sharma, R. Kumar, R. Kumar, "Disease Prediction Using Machine Learning and Deep Learning", International Journal for Research in Applied Science & Engineering Technology (IJRASET) ISSN: 2321-9653; IC Value: 45.98; SJ Impact Factor: 7.538 Volume 10 Issue V May 2022.
+
+\[11\]. S. K. Sarangi, Pallamravi, Pallamravi, N. R. Das, N. B. Madhavi, Naveen P, K. Kumar, "Disease Prediction Using Novel Deep Learning Mechanisms", Journal of Pharmaceutical Negative Results, Volume 13, Special Issue 9, 2022.
+
+\[12\]. D. Varshini, K. Thakral, L. Agarwal, R. Nihjhawan, A. Mittal, "Pneumonia Detection Using CNN based Feature Extraction", Computer Science, Medicine 2019 IEEE International Conference on Electrical, Computer and Communication Technologies (ICECCT), 2019.
+
+\[13\]. D. Kumar G, S. Kumar G, Arumugaraj K, Mareeswari V, "Prediction of Cardiovascular Disease Using Machine Learning Algorithms", IEEE International Conference on Current Trends toward Converging Technologies, 2018.
+
+\[14\]. D. K. Rathore and P. K. Mannepalli, "Diseases prediction and classification using machine learning techniques", AIP Conference Proceedings 2424, 070001 (2022).
+
+\[15\]. R. Bharti, A. Khamparia, M. Shabaz, G. Dhiman, S. Pande, and P. Singh, "Prediction of Heart Disease Using a Combination of Machine Learning and Deep Learning", Computational Intelligence and Neuroscience Volume 2021, Article ID 8387680.
+
+\[16\]. M. O. Eden et al., "Artificial Intelligence-Based Ensemble Learning Model for Prediction of Hepatitis C Disease", Frontiers in Public Health, April 2022, Volume 10, Article 892371.
+
+\[17\]. Z. Yu, et al., "Popular deep learning algorithms for disease prediction: a review", Cluster Computing (2023) 26:1231--1251, Springer.
+
+\[18\]. Dr C K Gomathy, Mr. A. R. Naidu, "The Prediction of disease using Machine Learning", International Journal of Scientific Research in Engineering and Management (IJSREM) ,Volume: 05 Issue:10,Oct -- 2021.
+
+\[19\]. Santangelo, O.E.; Gentile, V.; Pizzo, S.; Giordano, D.; Cedrone, F. "Machine Learning and Prediction of Infectious Diseases: A Systematic Review". Mach. Learn. Knowl. Extr. 2023, 5, 175--198.
+
+## **Project Presentation** <a name="ppt"></a>
+
+You can view the project presentation here:
+
+[Project Presentation PDF](./DeepCareX.pdf)
+
+## **Installation** <a name="install"></a>
+
+Build the project from source: (On a local System)
+
+1. Clone the DeepCareX.git repository:
+```sh
+❯ git clone --recurse-submodules -j8 https://github.com/sumony2j/DeepCareX.git
+```
+
+2. Navigate to the project directory:
+```sh
+❯ cd DeepCareX.git
+```
+
+3. Install the required dependencies: (**Follow for more details : requirment.txt**)
+```sh
+❯ pip3 install numpy pandas scikit-learn matplotlib os scipy seaborn xgboost joblib pickle sqlite3 tensorflow flask
+```
+4. Run the Application:
+```
+Follow the Instruction.txt file
+```
+
+## **Docker Deployment** <a name=docker></a>
+
+### Prerequisites
+
+Ensure you have Docker installed. You can download and install Docker from [here](https://docs.docker.com/get-docker/).
+
+### Building the Docker Image
+
+1. Clone the repository:
+
+   ```bash
+   git clone --recurse-submodules -j8 https://github.com/sumony2j/DeepCareX.git
+   ```
+2. Navigate to the project directory:
+
+   ```bash
+   cd DeepCareX
+   ```
+3. Build the Docker image:
+
+   ```bash
+   docker build -t deepcarex .
+   ```
+4. Start the container: (Port 5000 on your host machine is mapped to port 5000 of the container as the application is running on port 5000 of the container)
+
+   ```bash
+   docker run -it -d -p 5000:5000 deepcarex
+   ```
+5. Access the application:
+
+   ```bash
+   Open your web browser and go to http://localhost:5000
+   ```
+
+### Use Docker image from DockerHub
+
+1. Pull the docker builtin image
+
+   ```bash
+   docker pull sumon2j/deepcarex:latest
+   ```
+2. Start the container: (Port 5000 on your host machine is mapped to port 5000 of the container as the application is running on port 5000 of the container)
+
+   ```bash
+   docker run -it -d -p 5000:5000 deepcarex:latest
+   ```
+3. Access the application:
+
+   ```bash
+   Open your web browser and go to http://localhost:5000
+   ```
+
+##  Contributing <a name="contri"></a>
+
+Contributions are welcome! Here are several ways you can contribute:
+
+- **[Report Issues](https://github.com/sumony2j/DeepCareX.git/issues)**: Submit bugs found or log feature requests for the `DeepCareX.git` project.
+- **[Submit Pull Requests](https://github.com/sumony2j/DeepCareX.git/blob/main/CONTRIBUTING.md)**: Review open PRs, and submit your own PRs.
+- **[Join the Discussions](https://github.com/sumony2j/DeepCareX.git/discussions)**: Share your insights, provide feedback, or ask questions.
+
+<details closed>
    
-
-.. image:: https://img.shields.io/github/stars/sunlabuiuc/pyhealth.svg
-   :target: https://github.com/sunlabuiuc/pyhealth/stargazers
-   :alt: GitHub stars
-
-
-.. image:: https://img.shields.io/github/forks/sunlabuiuc/pyhealth.svg?color=blue
-   :target: https://github.com/sunlabuiuc/pyhealth/network
-   :alt: GitHub forks
-
-
-.. image:: https://static.pepy.tech/badge/pyhealth
-   :target: https://pepy.tech/project/pyhealth
-   :alt: Downloads
-
-
-.. image:: https://img.shields.io/badge/Tutorials-Google%20Colab-red
-   :target: https://pyhealth.readthedocs.io/en/latest/tutorials.html
-   :alt: Tutorials
-
-
-.. image:: https://img.shields.io/badge/YouTube-16%20Videos-red
-   :target: https://www.youtube.com/playlist?list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV
-   :alt: YouTube
-
-.. image:: https://github.com/sunlabuiuc/PyHealth/workflows/CI/badge.svg
-   :target: https://github.com/sunlabuiuc/PyHealth/actions
-   :alt: CI status
-
-
-.. -----
-
-
-.. **Build Status & Coverage & Maintainability & License**
-
-.. .. image:: https://travis-ci.org/yzhao062/pyhealth.svg?branch=master
-..    :target: https://travis-ci.org/yzhao062/pyhealth
-..    :alt: Build Status
-
-
-.. .. image:: https://ci.appveyor.com/api/projects/status/1kupdy87etks5n3r/branch/master?svg=true
-..    :target: https://ci.appveyor.com/project/yzhao062/pyhealth/branch/master
-..    :alt: Build status
-
-
-.. .. image:: https://api.codeclimate.com/v1/badges/bdc3d8d0454274c753c4/maintainability
-..    :target: https://codeclimate.com/github/yzhao062/pyhealth/maintainability
-..    :alt: Maintainability
-
-
-.. .. image:: https://img.shields.io/github/license/yzhao062/pyhealth
-..    :target: https://github.com/yzhao062/pyhealth/blob/master/LICENSE
-..    :alt: License
-
-
-Citing PyHealth :handshake:
-----------------------------------
- Yang, Chaoqi, Zhenbang Wu, Patrick Jiang, Zhen Lin, Junyi Gao, Benjamin P. Danek, and Jimeng Sun. 2023. “PyHealth: A Deep Learning Toolkit for Healthcare Applications.” In Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 5788–89. KDD ’23. New York, NY, USA: Association for Computing Machinery.
-
-.. code-block:: bibtex
-
-    @inproceedings{pyhealth2023yang,
-        author = {Yang, Chaoqi and Wu, Zhenbang and Jiang, Patrick and Lin, Zhen and Gao, Junyi and Danek, Benjamin and Sun, Jimeng},
-        title = {{PyHealth}: A Deep Learning Toolkit for Healthcare Predictive Modeling},
-        url = {https://github.com/sunlabuiuc/PyHealth},
-        booktitle = {Proceedings of the 27th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD) 2023},
-        year = {2023}
-    }
-
-Checkout Our KDD'23 Tutorial https://sunlabuiuc.github.io/PyHealth/
------------------------------------------------------------------
-
-
-PyHealth is a comprehensive deep learning toolkit for supporting clinical predictive modeling, which is designed for both **ML researchers and medical practitioners**. We can make your **healthcare AI applications** easier to deploy and more flexible and customizable. `[Tutorials] <https://pyhealth.readthedocs.io/>`_
-
- **[News!]** We are continueously implemeting good papers and benchmarks into PyHealth, checkout the `[planned List] <https://docs.google.com/spreadsheets/d/1PNMgDe-llOm1SM5ZyGLkmPysjC4wwaVblPLAHLxejTw/edit#gid=159213380>`_. Welcome to pick one from the list and send us a PR or add more influential and new papers into the plan list.
-
-.. image:: figure/poster.png
-   :width: 810
-
-..
-
-1. Installation :rocket:
-----------------------------
-
-- You could install from PyPi:
-
-.. code-block:: sh
-
-    pip install pyhealth
-
-- or from github source:
-
-.. code-block:: sh
-
-    pip install .
-
-
-2. Introduction :book:
---------------------------
-``pyhealth`` provides these functionalities (we are still enriching some modules):
-
-.. image:: figure/overview.png
-   :width: 770
-
-You can use the following functions independently:
-
-- **Dataset**: ``MIMIC-III``, ``MIMIC-IV``, ``eICU``, ``OMOP-CDM``, ``customized EHR datasets``, etc.
-- **Tasks**: ``diagnosis-based drug recommendation``, ``patient hospitalization and mortality prediction``, ``length stay forecasting``, etc. 
-- **ML models**: ``CNN``, ``LSTM``, ``GRU``, ``LSTM``, ``RETAIN``, ``SafeDrug``, ``Deepr``, etc.
-
-*Building a healthcare AI pipeline can be as short as 10 lines of code in PyHealth*.
-
-
-3. Build ML Pipelines :trophy:
----------------------------------
-
-All healthcare tasks in our package follow a **five-stage pipeline**: 
-
-.. image:: figure/five-stage-pipeline.png
-   :width: 640
-
-..
-
- We try hard to make sure each stage is as separate as possible, so that people can customize their own pipeline by only using our data processing steps or the ML models.
-
-Module 1: <pyhealth.datasets>
-""""""""""""""""""""""""""""""""""""
-
-``pyhealth.datasets`` provides a clean structure for the dataset, independent from the tasks. We support `MIMIC-III`, `MIMIC-IV` and `eICU`, etc. The output (mimic3base) is a multi-level dictionary structure (see illustration below).
-
-.. code-block:: python
-
-    from pyhealth.datasets import MIMIC3Dataset
-
-    mimic3base = MIMIC3Dataset(
-        # root directory of the dataset
-        root="https://storage.googleapis.com/pyhealth/Synthetic_MIMIC-III/", 
-        # raw CSV table name
-        tables=["DIAGNOSES_ICD", "PROCEDURES_ICD", "PRESCRIPTIONS"],
-        # map all NDC codes to CCS codes in these tables
-        code_mapping={"NDC": "CCSCM"},
-    )
-
-.. image:: figure/structured-dataset.png
-   :width: 400
-
-..
-
-Module 2: <pyhealth.tasks>
-""""""""""""""""""""""""""""""""""""
-
-``pyhealth.tasks`` defines how to process each patient's data into a set of samples for the tasks. In the package, we provide several task examples, such as ``drug recommendation`` and ``length of stay prediction``. **It is easy to customize your own tasks following our** `template <https://colab.research.google.com/drive/1r7MYQR_5yCJGpK_9I9-A10HmpupZuIN-?usp=sharing>`_.
-
-.. code-block:: python
-
-    from pyhealth.tasks import readmission_prediction_mimic3_fn
-
-    mimic3sample = mimic3base.set_task(task_fn=readmission_prediction_mimic3_fn) # use default task
-    mimic3sample.samples[0] # show the information of the first sample
-    """
-    {
-        'visit_id': '100183',
-        'patient_id': '175',
-        'conditions': ['5990', '4280', '2851', '4240', '2749', '9982', 'E8499', '42831', '34600'],
-        'procedures': ['0040', '3931', '7769'],
-        'drugs': ['N06DA02', 'V06DC01', 'B01AB01', 'A06AA02', 'R03AC02', 'H03AA01', 'J01FA09'],
-        'label': 0
-    }
-    """
-
-    from pyhealth.datasets import split_by_patient, get_dataloader
-
-    train_ds, val_ds, test_ds = split_by_patient(mimic3sample, [0.8, 0.1, 0.1])
-    train_loader = get_dataloader(train_ds, batch_size=32, shuffle=True)
-    val_loader = get_dataloader(val_ds, batch_size=32, shuffle=False)
-    test_loader = get_dataloader(test_ds, batch_size=32, shuffle=False)
-
-Module 3: <pyhealth.models>
-""""""""""""""""""""""""""""""""""""
-
-``pyhealth.models`` provides different ML models with very similar argument configs.
-
-.. code-block:: python
-
-    from pyhealth.models import Transformer
-
-    model = Transformer(
-        dataset=mimic3sample,
-        feature_keys=["conditions", "procedures", "drug"],
-        label_key="label",
-        mode="binary",
-    )
-
-Module 4: <pyhealth.trainer>
-""""""""""""""""""""""""""""""""""""
-
-``pyhealth.trainer`` can specify training arguments, such as epochs, optimizer, learning rate, etc. The trainer will automatically save the best model and output the path in the end.
-
-.. code-block:: python
-    
-    from pyhealth.trainer import Trainer
-
-    trainer = Trainer(model=model)
-    trainer.train(
-        train_dataloader=train_loader,
-        val_dataloader=val_loader,
-        epochs=50,
-        monitor="pr_auc_samples",
-    )
-
-Module 5: <pyhealth.metrics>
-""""""""""""""""""""""""""""""""""""
-
-``pyhealth.metrics`` provides several **common evaluation metrics** (refer to `Doc <https://pyhealth.readthedocs.io/en/latest/api/metrics.html>`_ and see what are available).
-
-.. code-block:: python
-
-    # method 1
-    trainer.evaluate(test_loader)
-    
-    # method 2
-    from pyhealth.metrics.binary import binary_metrics_fn
-
-    y_true, y_prob, loss = trainer.inference(test_loader)
-    binary_metrics_fn(y_true, y_prob, metrics=["pr_auc", "roc_auc"])
-
-4. Medical Code Map :hospital: 
----------------------------------
-
-``pyhealth.codemap`` provides two core functionalities. **This module can be used independently.**
-
-* For code ontology lookup within one medical coding system (e.g., name, category, sub-concept); 
-
-.. code-block:: python
-
-    from pyhealth.medcode import InnerMap
-
-    icd9cm = InnerMap.load("ICD9CM")
-    icd9cm.lookup("428.0")
-    # `Congestive heart failure, unspecified`
-    icd9cm.get_ancestors("428.0")
-    # ['428', '420-429.99', '390-459.99', '001-999.99']
-    
-    atc = InnerMap.load("ATC")
-    atc.lookup("M01AE51")
-    # `ibuprofen, combinations`
-    atc.lookup("M01AE51", "drugbank_id")
-    # `DB01050`
-    atc.lookup("M01AE51", "description")
-    # Ibuprofen is a non-steroidal anti-inflammatory drug (NSAID) derived ...
-    atc.lookup("M01AE51", "indication")
-    # Ibuprofen is the most commonly used and prescribed NSAID. It is very common over the ...
-
-* For code mapping between two coding systems (e.g., ICD9CM to CCSCM). 
-
-.. code-block:: python
-
-    from pyhealth.medcode import CrossMap
-
-    codemap = CrossMap.load("ICD9CM", "CCSCM")
-    codemap.map("428.0")
-    # ['108']
-
-    codemap = CrossMap.load("NDC", "RxNorm")
-    codemap.map("50580049698")
-    # ['209387']
-
-    codemap = CrossMap.load("NDC", "ATC")
-    codemap.map("50090539100")
-    # ['A10AC04', 'A10AD04', 'A10AB04']
-
-5. Medical Code Tokenizer :speech_balloon:
----------------------------------------------
-
-``pyhealth.tokenizer`` is used for transformations between string-based tokens and integer-based indices, based on the overall token space. We provide flexible functions to tokenize 1D, 2D and 3D lists. **This module can be used independently.**
-
-.. code-block:: python
-
-    from pyhealth.tokenizer import Tokenizer
-
-    # Example: we use a list of ATC3 code as the token
-    token_space = ['A01A', 'A02A', 'A02B', 'A02X', 'A03A', 'A03B', 'A03C', 'A03D', \
-            'A03F', 'A04A', 'A05A', 'A05B', 'A05C', 'A06A', 'A07A', 'A07B', 'A07C', \
-            'A12B', 'A12C', 'A13A', 'A14A', 'A14B', 'A16A']
-    tokenizer = Tokenizer(tokens=token_space, special_tokens=["<pad>", "<unk>"])
-
-    # 2d encode 
-    tokens = [['A03C', 'A03D', 'A03E', 'A03F'], ['A04A', 'B035', 'C129']]
-    indices = tokenizer.batch_encode_2d(tokens) 
-    # [[8, 9, 10, 11], [12, 1, 1, 0]]
-
-    # 2d decode 
-    indices = [[8, 9, 10, 11], [12, 1, 1, 0]]
-    tokens = tokenizer.batch_decode_2d(indices)
-    # [['A03C', 'A03D', 'A03E', 'A03F'], ['A04A', '<unk>', '<unk>']]
-
-    # 3d encode
-    tokens = [[['A03C', 'A03D', 'A03E', 'A03F'], ['A08A', 'A09A']], \
-        [['A04A', 'B035', 'C129']]]
-    indices = tokenizer.batch_encode_3d(tokens)
-    # [[[8, 9, 10, 11], [24, 25, 0, 0]], [[12, 1, 1, 0], [0, 0, 0, 0]]]
-
-    # 3d decode
-    indices = [[[8, 9, 10, 11], [24, 25, 0, 0]], \
-        [[12, 1, 1, 0], [0, 0, 0, 0]]]
-    tokens = tokenizer.batch_decode_3d(indices)
-    # [[['A03C', 'A03D', 'A03E', 'A03F'], ['A08A', 'A09A']], [['A04A', '<unk>', '<unk>']]]
-..
-
-6. Tutorials :teacher:
-----------------------------
-
-.. image:: https://colab.research.google.com/assets/colab-badge.svg
-    :target: https://pyhealth.readthedocs.io/en/latest/tutorials.html
-
-..
-
- We provide the following tutorials to help users get started with our pyhealth. 
-
-`Tutorial 0: Introduction to pyhealth.data <https://colab.research.google.com/drive/1y9PawgSbyMbSSMw1dpfwtooH7qzOEYdN?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=Nk1itBoLOX8&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=2>`__  
-
-`Tutorial 1: Introduction to pyhealth.datasets <https://colab.research.google.com/drive/18kbzEQAj1FMs_J9rTGX8eCoxnWdx4Ltn?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=c1InKqFJbsI&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=3>`__  
-
-`Tutorial 2: Introduction to pyhealth.tasks <https://colab.research.google.com/drive/1r7MYQR_5yCJGpK_9I9-A10HmpupZuIN-?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=CxESe1gYWU4&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=4>`__  
-
-`Tutorial 3: Introduction to pyhealth.models <https://colab.research.google.com/drive/1LcXZlu7ZUuqepf269X3FhXuhHeRvaJX5?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=fRc0ncbTgZA&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=6>`__  
-
-`Tutorial 4: Introduction to pyhealth.trainer <https://colab.research.google.com/drive/1L1Nz76cRNB7wTp5Pz_4Vp4N2eRZ9R6xl?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=5Hyw3of5pO4&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=7>`__  
-
-`Tutorial 5: Introduction to pyhealth.metrics <https://colab.research.google.com/drive/1Mrs77EJ92HwMgDaElJ_CBXbi4iABZBeo?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=d-Kx_xCwre4&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=8>`__ 
-
-
-`Tutorial 6: Introduction to pyhealth.tokenizer <https://colab.research.google.com/drive/1bDOb0A5g0umBjtz8NIp4wqye7taJ03D0?usp=sharing>`_ `[Video] <https://www.youtube.com/watch?v=CeXJtf0lfs0&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=10>`__ 
-
-
-`Tutorial 7: Introduction to pyhealth.medcode <https://colab.research.google.com/drive/1xrp_ACM2_Hg5Wxzj0SKKKgZfMY0WwEj3?usp=sharing>`_ `[Video] <https://www.youtube.com/watch?v=MmmfU6_xkYg&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=9>`__  
-
-
- The following tutorials will help users build their own task pipelines.
-
-`Pipeline 1: Drug Recommendation <https://colab.research.google.com/drive/10CSb4F4llYJvv42yTUiRmvSZdoEsbmFF?usp=sharing>`_ `[Video] <https://
-www.youtube.com/watch?v=GGP3Dhfyisc&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=12>`__  
-
-`Pipeline 2: Length of Stay Prediction <https://colab.research.google.com/drive/1JoPpXqqB1_lGF1XscBOsDHMLtgvlOYI1?usp=sharing>`_ `[Video] <https://
-www.youtube.com/watch?v=GGP3Dhfyisc&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=12>`__  
-
-`Pipeline 3: Readmission Prediction <https://colab.research.google.com/drive/1bhCwbXce1YFtVaQLsOt4FcyZJ1_my7Cs?usp=sharing>`_ `[Video] <https://
-www.youtube.com/watch?v=GGP3Dhfyisc&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=12>`__  
-
-`Pipeline 4: Mortality Prediction <https://colab.research.google.com/drive/1Qblpcv4NWjrnADT66TjBcNwOe8x6wU4c?usp=sharing>`_ `[Video] <https://
-www.youtube.com/watch?v=GGP3Dhfyisc&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=12>`__ 
-
-`Pipeline 5: Sleep Staging <https://colab.research.google.com/drive/1mpSeNCAthXG3cqROkdUcUdozIPIMTCuo?usp=sharing>`_ `[Video] <https://www.youtube.com/watch?v=ySAIU-rO6so&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=16>`__  
-
-
- We provided the advanced tutorials for supporting various needs. 
-
-`Advanced Tutorial 1: Fit your dataset into our pipeline <https://colab.research.google.com/drive/1UurxwAAov1bL_5OO3gQJ4gAa_paeJwJp?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=xw2hGLEQ4Y0&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=13>`__ 
-
-`Advanced Tutorial 2: Define your own healthcare task <https://colab.research.google.com/drive/1gK6zPXvfFGBM1uNaLP32BOKrnnJdqRq2?usp=sharing>`_ 
-
-`Advanced Tutorial 3: Adopt customized model into pyhealth <https://colab.research.google.com/drive/1F_NJ90GC8_Eq-vKTf7Tyziew4gWjjKoH?usp=sharing>`_  `[Video] <https://www.youtube.com/watch?v=lADFlcmLtdE&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=14>`__ 
-
-`Advanced Tutorial 4: Load your own processed data into pyhealth and try out our ML models <https://colab.research.google.com/drive/1ZRnKch2EyJLrI3G5AvDXVpeE2wwgBWfw?usp=sharing>`_ `[Video] <https://www.youtube.com/watch?v=xw2hGLEQ4Y0&list=PLR3CNIF8DDHJUl8RLhyOVpX_kT4bxulEV&index=13>`__ 
-
-
-7. Datasets :mountain_snow:
------------------------------
-We provide the processing files for the following open EHR datasets:
-
-===================  =======================================  ========================================  ======================================================================================================== 
-Dataset              Module                                   Year                                      Information                                                             
-===================  =======================================  ========================================  ========================================================================================================
-MIMIC-III            ``pyhealth.datasets.MIMIC3Dataset``      2016                                      `MIMIC-III Clinical Database <https://physionet.org/content/mimiciii/1.4//>`_    
-MIMIC-IV             ``pyhealth.datasets.MIMIC4Dataset``      2020                                      `MIMIC-IV Clinical Database <https://physionet.org/content/mimiciv/0.4/>`_  
-eICU                 ``pyhealth.datasets.eICUDataset``        2018                                      `eICU Collaborative Research Database <https://eicu-crd.mit.edu//>`_                 
-OMOP                 ``pyhealth.datasets.OMOPDataset``                                                  `OMOP-CDM schema based dataset <https://www.ohdsi.org/data-standardization/the-common-data-model/>`_    
-SleepEDF             ``pyhealth.datasets.SleepEDFDataset``    2018                                      `Sleep-EDF dataset <https://physionet.org/content/sleep-edfx/1.0.0/>`_
-SHHS                 ``pyhealth.datasets.SHHSDataset``        2016                                      `Sleep Heart Health Study dataset <https://sleepdata.org/datasets/shhs>`_   
-ISRUC                ``pyhealth.datasets.ISRUCDataset``       2016                                      `ISRUC-SLEEP dataset <https://sleeptight.isr.uc.pt/?page_id=48>`_                               
-===================  =======================================  ========================================  ========================================================================================================
-
-
-8. Machine/Deep Learning Models and Benchmarks :airplane:
-------------------------------------------------------------
-
-==================================    ================  =================================  ======  ============================================================================================================================================================================  =======================================================================================================================================================================================
-Model Name                            Type              Module                             Year    Summary                                                                                                                                                                       Reference
-==================================    ================  =================================  ======  ============================================================================================================================================================================  =======================================================================================================================================================================================
-Multi-layer Perceptron                deep learning     ``pyhealth.models.MLP``            1986    MLP treats each feature as static                                                                                                                                             `Backpropagation: theory, architectures, and applications <https://www.taylorfrancis.com/books/mono/10.4324/9780203763247/backpropagation-yves-chauvin-david-rumelhart>`_
-Convolutional Neural Network (CNN)    deep learning     ``pyhealth.models.CNN``            1989    CNN runs on the conceptual patient-by-visit grids                                                                                                                             `Handwritten Digit Recognition with a Back-Propagation Network <https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf>`_
-Recurrent Neural Nets (RNN)           deep Learning     ``pyhealth.models.RNN``            2011    RNN (includes LSTM and GRU) can run on any sequential level (e.g., visit by visit sequences)                                                                                  `Recurrent neural network based language model <http://www.fit.vutbr.cz/research/groups/speech/servite/2010/rnnlm_mikolov.pdf>`_
-Transformer                           deep Learning     ``pyhealth.models.Transformer``    2017    Transformer can run on any sequential level (e.g., visit by visit sequences)                                                                                                  `Attention Is All You Need <https://arxiv.org/abs/1706.03762>`_
-RETAIN                                deep Learning     ``pyhealth.models.RETAIN``         2016    RETAIN uses two RNN to learn patient embeddings while providing feature-level and visit-level importance.                                                                     `RETAIN: An Interpretable Predictive Model for Healthcare using Reverse Time Attention Mechanism <https://arxiv.org/abs/1608.05745>`_
-GAMENet                               deep Learning     ``pyhealth.models.GAMENet``        2019    GAMENet uses memory networks, used only for drug recommendation task                                                                                                          `GAMENet: Graph Augmented MEmory Networks for Recommending Medication Combination <https://arxiv.org/abs/1809.01852>`_
-MICRON                                deep Learning     ``pyhealth.models.MICRON``         2021    MICRON predicts the future drug combination by instead predicting the changes w.r.t. the current combination, used only for drug recommendation task                          `Change Matters: Medication Change Prediction with Recurrent Residual Networks <https://www.ijcai.org/proceedings/2021/0513>`_
-SafeDrug                              deep Learning     ``pyhealth.models.SafeDrug``       2021    SafeDrug encodes drug molecule structures by graph neural networks, used only for drug recommendation task                                                                    `SafeDrug: Dual Molecular Graph Encoders for Recommending Effective and Safe Drug Combinations <https://arxiv.org/abs/2105.02711>`_
-MoleRec                               deep Learning     ``pyhealth.models.MoleRec``        2023    MoleRec encodes drug molecule in a substructure level as well as the patient's information into a drug combination representation, used only for drug recommendation task     `MoleRec: Combinatorial Drug Recommendation with Substructure-Aware Molecular Representation Learning <https://dl.acm.org/doi/10.1145/3543507.3583872>`_
-Deepr                                 deep Learning     ``pyhealth.models.Deepr``          2017    Deepr is based on 1D CNN. General purpose.                                                                                                                                    `Deepr : A Convolutional Net for Medical Records <https://arxiv.org/abs/1607.07519>`_
-ContraWR Encoder (STFT+CNN)           deep Learning     ``pyhealth.models.ContraWR``       2021    ContraWR encoder uses short time Fourier transform (STFT) + 2D CNN, used for biosignal learning                                                                               `Self-supervised EEG Representation Learning for Automatic Sleep Staging <https://arxiv.org/abs/2110.15278>`_
-SparcNet (1D CNN)                     deep Learning     ``pyhealth.models.SparcNet``       2023    SparcNet is based on 1D CNN, used for biosignal learning                                                                                                                      `Development of Expert-level Classification of Seizures and Rhythmic and Periodic Patterns During EEG Interpretation <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10136013/>`_
-TCN                                   deep learning     ``pyhealth.models.TCN``            2018    TCN is based on dilated 1D CNN. General purpose                                                                                                                               `An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling <https://arxiv.org/abs/1803.01271>`_
-AdaCare                               deep learning     ``pyhealth.models.AdaCare``        2020    AdaCare uses CNNs with dilated filters to learn enriched patient embedding. It uses feature calibration module to provide the feature-level and visit-level interpretability  `AdaCare: Explainable Clinical Health Status Representation Learning via Scale-Adaptive Feature Extraction and Recalibration <https://arxiv.org/abs/1911.12205>`_
-ConCare                               deep learning     ``pyhealth.models.ConCare``        2020    ConCare uses transformers to learn patient embedding and calculate inter-feature correlations.                                                                                `ConCare: Personalized Clinical Feature Embedding via Capturing the Healthcare Context <https://arxiv.org/abs/1911.12216>`_
-StageNet                              deep learning     ``pyhealth.models.StageNet``       2020    StageNet uses stage-aware LSTM to conduct clinical predictive tasks while learning patient disease progression stage change unsupervisedly                                    `StageNet: Stage-Aware Neural Networks for Health Risk Prediction <https://arxiv.org/abs/2001.10054>`_
-Dr. Agent                             deep learning     ``pyhealth.models.Agent``          2020    Dr. Agent uses two reinforcement learning agents to learn patient embeddings by mimicking clinical second opinions                                                            `Dr. Agent: Clinical predictive model via mimicked second opinions <https://academic.oup.com/jamia/article/27/7/1084/5858308>`_
-GRASP                                 deep learning     ``pyhealth.models.GRASP``          2021    GRASP uses graph neural network to identify latent patient clusters and uses the clustering information to learn patient                                                      `GRASP: Generic Framework for Health Status Representation Learning Based on Incorporating Knowledge from Similar Patients <https://ojs.aaai.org/index.php/AAAI/article/view/16152>`_
-==================================    ================  =================================  ======  ============================================================================================================================================================================  =======================================================================================================================================================================================
-
-* Check the `interactive map on benchmark EHR predictive tasks <https://pyhealth.readthedocs.io/en/latest/index.html#benchmark-on-healthcare-tasks>`_.
-
-
+<summary>Contributing Guidelines</summary>
+
+1. **Fork the Repository**: Start by forking the project repository to your github account.
+2. **Clone Locally**: Clone the forked repository to your local machine using a git client.
+   ```sh
+   git clone https://github.com/sumony2j/DeepCareX.git
+   ```
+3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
+   ```sh
+   git checkout -b new-feature-x
+   ```
+4. **Make Your Changes**: Develop and test your changes locally.
+5. **Commit Your Changes**: Commit with a clear message describing your updates.
+   ```sh
+   git commit -m 'Implemented new feature x.'
+   ```
+6. **Push to github**: Push the changes to your forked repository.
+   ```sh
+   git push origin new-feature-x
+   ```
+7. **Submit a Pull Request**: Create a PR against the original project repository. Clearly describe the changes and their motivations.
+8. **Review**: Once your PR is reviewed and approved, it will be merged into the main branch. Congratulations on your contribution!
+</details>

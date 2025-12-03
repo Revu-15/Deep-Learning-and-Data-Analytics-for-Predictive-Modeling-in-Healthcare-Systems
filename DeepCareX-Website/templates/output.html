@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link href="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+</head>
+<body style="background-image: url('static/Images/output-1.jpg');background-size: cover;" class="container-fluid">
+    <!--Authentication message-->
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success mb-0" role="alert">
+      <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    <div class="row g-3 p-2 position-absolute top-50 start-50 translate-middle bg-dark bg-gradient bg-opacity-75 border rounded-top" style="display: flex;">
+        <h2 class="bg-white rounded-pill" style="text-align: center;">{{disease}} Report</h2>
+        <div class="col-md-4" style="display: flex;">
+            <img src="{{url_for('static',filename='Images/bg-3.jpg')}}" alt="..." style="background-size: cover;width: 100%;height: auto;background-position: center;background-repeat: no-repeat;">
+        </div>
+        <div class="col-md-8 text-white">
+            <div>
+                <h5>Patient's Id : {{id_}}</h5>
+                <h5>Name : {{name}}</h5>
+                <h5>Age : {{age}}</h5>
+                <h5>Gender : {{gender}}</h5>
+                <h5>Report : {{result}}</h5>
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static',filename='jquery/jquery-3.6.4.min.js')}}" type="text/javascript"></script> 
+    <script src="{{url_for('static',filename='popper/popper.min.js')}}" type="text/javascript"></script> 
+    <script src="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/js/bootstrap.min.js')}}" type="text/javascript"></script>
+</body>
+</html>

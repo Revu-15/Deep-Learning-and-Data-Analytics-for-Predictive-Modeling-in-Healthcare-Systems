@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+	<style>
+  /*  
+  .container{
+            width: 60%;
+            padding: 45px;
+            border-radius: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+}*/
+  .row{
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+  .col-md-7{
+      padding: 20px;
+	    background: #393f4d;
+	    color: black;
+}
+  .col-md-5{
+      padding: 20px;
+	    background:#feda6a;
+      color: black;
+}
+  input[type="text"]{
+      background-color: black;
+	    border-style: solid;
+	    border-color: black;
+	    height: auto;
+      color: white;
+	    font-size: 14px;
+      border-radius: 2px;
+}
+  textarea{
+	    background-color: black;
+	    color: white;
+	    border-style: solid;
+	    border-color: black;
+	    font-size: 14px;
+      border-radius: 2px;
+	    height: 100px;
+	    width: 100%;
+}
+  .bi{
+      font-size: 20px;
+}
+  .d-flex p{
+      font-size: 18px;
+      padding-left: 10px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+  .form-label{
+	    color: white;
+}
+/*
+@media only screen and (max-width:600px){
+    .contact-form{
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 90%;
+    }
+}*/
+	</style>
+  <link href="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-icons-1.10.5/font/bootstrap-icons.css')}}" type="text/css">
+  </head>
+  <body style="background-image:url('static/Images/contact.jpg');background-size: cover;" >
+	<!--Navbar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark mb-4" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">DeepCareX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('home')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('About')}}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--Authentication message-->
+  {% for message in get_flashed_messages(with_categories=True) %}
+  <div class="alert alert-{{ message[0] }} mb-0" role="alert">
+    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{{ message[1] }}</strong>
+  </div>
+  {% endfor %}
+	<div class="container mt-3">
+        <div class="row">
+            <div class="col-md-7">
+              <h4 class="text-white">Get in touch</h4>
+              <form action="{{url_for('Reply')}}" method="post">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter your email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Contact</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter your number" name="contact">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea id="exampleFormControlTextarea1" placeholder="Message" name="message"></textarea>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+            <div class="col-md-5 ">
+              <h4>Contact us</h4><hr>
+              <div class="mt-4">
+                  <div class="d-flex">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <p >Address: Mumbai, INDIA</p>
+                  </div><hr>
+                  <div class="d-flex">
+                    <i class="bi bi-telephone-fill"></i>
+                    <p>Contact :- 8888888888</p>
+                  </div><hr>
+                  <div class="d-flex">
+                    <i class="bi bi-envelope-fill"></i>
+                    <p>Email:- DeepCareX@gmail.com</p>
+                  </div><hr>
+                  <div class="d-flex">
+                    <i class="bi bi-browser-chrome"></i>
+                    <p>Website: www.DeepCareX.com</p>
+                  </div><hr>
+              </div>
+            </div>
+        </div>
+  </div>
+  <script src="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js')}}" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  </body>
+</html>

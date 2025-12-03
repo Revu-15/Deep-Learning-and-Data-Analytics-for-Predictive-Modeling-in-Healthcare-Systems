@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepCareX</title>
+    <style>
+      .c-item {
+        height: 400px;
+      }
+      .c-img {
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.6);
+      }
+      .card-img-top {
+        width: 100%;
+        height: 25vw;
+        object-fit: cover;
+      }
+    </style>
+    <link href="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-icons-1.10.5/font/bootstrap-icons.css')}}" type="text/css">
+</head>
+<body>
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">DeepCareX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('About')}}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('Contact')}}">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--Authentication message-->
+  {% for message in get_flashed_messages(with_categories=True) %}
+  <div class="alert alert-{{ message[0] }} mb-0" role="alert">
+    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{{ message[1] }}</strong>
+  </div>
+  {% endfor %}
+  <!--Carousel-->
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="{{ url_for('static',filename='Images/carousel-1.jpg')}}" class="d-block w-100 c-img" alt="Slide-1">
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{{ url_for('static',filename='Images/carousel-2.jpg')}}" class="d-block w-100 c-img" alt="Slide-2">
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{{ url_for('static',filename='Images/carousel-3.jpg')}}" class="d-block w-100 c-img" alt="Slide-3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!--Signup-->
+<section class="">
+  <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-5 display-3 fw-bold ls-tight">
+            DeepCareX <br />
+            <span class="text-primary">One Step Ahead</span>
+          </h1>
+          <p style="color: hsl(217, 10%, 50.8%)">
+            Welcome to DeepCareX ,where we adhere to the philosophy that modern technology should be used 
+            in conjunction with caring treatment to enhance the lives of both patients and healthcare professionals.
+            DeepCareX is a AI based heathcare system that will help you to generate report of your illness.
+            We rely on your symptoms and past data to determine the result of your disease.
+            We are using various pre-trained deep learning & machine learning models to get the result.
+            
+          </p>
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+                <form action="{{url_for('login')}}" method="post">
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="username" placeholder="Your Name" />
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="useremail" placeholder="Your Email" />
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cg" class="form-control form-control-lg" name="userpassword" placeholder="Password" />
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg" name="confirm_userpassword" placeholder="Confirm Password" />
+                  </div>
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                    <label class="form-check-label" for="form2Example3g">
+                      I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    </label>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  </div>
+                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#"
+                    class="fw-bold text-body" data-bs-toggle="modal" data-bs-target="#loginModal"><u>Login here</u></a></p>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content bg-dark text-white">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form action="{{url_for('login')}}" method="post">
+    <div class="modal-body mx-3">
+      <div class="md-form mb-5">
+        <i class="fas fa-envelope prefix grey-text"></i>
+        <input type="text" id="defaultForm-email" class="form-control validate" name="name">
+        <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+      </div>
+
+      <div class="md-form mb-4">
+        <i class="fas fa-lock prefix grey-text"></i>
+        <input type="password" id="defaultForm-pass" class="form-control validate" name="password">
+        <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+      </div>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button class="btn btn-success" type="submit">Login</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<!--Cards-->
+<div class="row row-cols-1 row-cols-md-3 g-4 p-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ url_for('static',filename='Images/Dr._Eric.jpg')}}" class="card-img-top"/>
+      <div class="card-body">
+        <h5 class="card-title">Dr. Eric Topol</h5>
+        <q class="card-text">
+          The integration of artificial intelligence in healthcare will fundamentally change the way we practice medicine, 
+          and ultimately lead to better patient outcomes.
+        </q>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Founder and Director, Scripps Research Translational Institute</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ url_for('static',filename='Images/Dr._Chang.jpg')}}" class="card-img-top"/>
+      <div class="card-body">
+        <h5 class="card-title">Dr. Anthony Chang</h5>
+        <q class="card-text">AI will empower doctors to focus on what they do best - treating patients - by doing what they do best - processing data.</q>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Chief Intelligence and Innovation Officer at Children's Hospital of Orange County</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ url_for('static',filename='Images/Dr._Li.jpg')}}" class="card-img-top"/>
+      <div class="card-body">
+        <h5 class="card-title">Dr. Fei-Fei Li</h5>
+        <q class="card-text">
+          The greatest potential for AI is not replacing doctors, but rather augmenting their abilities and enabling them 
+          to focus on what they do best: providing compassionate and personalized care to their patients.
+        </q>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Co-Director of the Stanford Institute for Human-Centered Artificial Intelligence.</small>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4 pb-0">
+    <section class="">
+      <form action="{{url_for('Newsletter')}}" method="post">
+        <div class="row d-flex justify-content-center">
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <div class="col-md-5 col-12">
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example29" class="form-control" name="email" />
+              <label class="form-label" for="form5Example29">Email address</label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="#">DeepCareX.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<script src="{{url_for('static',filename='jquery/jquery-3.6.4.min.js')}}" type="text/javascript"></script> 
+<script src="{{url_for('static',filename='popper/popper.min.js')}}" type="text/javascript"></script> 
+<script src="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/js/bootstrap.min.js')}}" type="text/javascript"></script> 
+</body>
+</html>

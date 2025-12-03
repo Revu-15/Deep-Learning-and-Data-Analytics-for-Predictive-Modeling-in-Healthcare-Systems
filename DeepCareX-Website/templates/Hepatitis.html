@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hepatitis</title>
+    <link href="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-icons-1.10.5/font/bootstrap-icons.css')}}" type="text/css">
+  </head>
+  <body style="background-image: url('static/Images/Hepatitis-1.jpg');background-size: cover;" class="container-fluid">
+    <!--Navbar-->
+    <nav class="row navbar navbar-expand-lg navbar-default navbar-top bg-dark mb-4" data-bs-theme="dark">
+      <div class="container text-white">
+        <div class="dropdown dropright">
+          <a class="navbar-brand" href="{{url_for('home')}}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle p-2"></i></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><p class="dropdown-item" href="#">{{login_user}}</p></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('logout')}}">Sign Out</a></li>
+        </ul>
+      </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Alzheimer')}}">Alzheimer</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('Breast_Cancer')}}">Breast Cancer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Brain_Tumor')}}">Brain Tumor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Covid')}}">Covid-19</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Diabetes')}}">Diabetes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Hepatitis')}}">Hepatitis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Pneumonia')}}">Pneumonia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Kidney')}}">Kidney Disease</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Form-->
+    <form class="row g-3 p-2 mt-5 bg-opacity-75 bg-dark bg-gradient text-white border border-secondary rounded col-8 offset-2"  action="{{url_for('Hepatitis_Report')}}" method="post" enctype="multipart/form-data">
+      <div class="m-0" style="text-align: center;">
+        <h3 class="text-info">Hepatitis C</h3>
+      </div>
+      <div class="col-md-6">
+        <label class="visually-hidden" for="specificSizeInputName">Name</label>
+        <input type="text" class="form-control" id="specificSizeInputName" placeholder="Name" name="name">
+      </div>
+      <div class="col-md-6">
+        <label class="visually-hidden" for="specificSizeInputName">Id</label>
+        <input type="text" class="form-control" id="specificSizeInputName" placeholder="Patient's Id" name="id">
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label visually-hidden">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email-Id" name="email">
+      </div>
+      <div class="col-md-6">
+        <label for="inputTel" class="form-label visually-hidden">Phone</label>
+        <input type="tel" class="form-control" id="inputTel" placeholder="888 888 8888" maxlength="10" name="contact">
+      </div>
+      <div class="col-md-4">
+        <label for="inputCountry" class="form-label">Country</label>
+        <input type="text" class="form-control" id="inputCity" placeholder="" name="country">
+      </div>
+      <div class="col-md-4">
+        <label for="inputStte" class="form-label">State</label>
+        <select id="inputStte" class="form-select" name="state">
+          <option selected>Maharasthra</option>
+          <option>Karnataka</option>
+          <option>West Bengal</option>
+          <option>Delhi</option>
+          <option>Kerala</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip" placeholder="Pincode" name="pin">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="inputGender">Gender</label>
+        <select id="inputGender" class="form-select" name="gender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="inputAge">Age</label>
+        <input type="number" class="form-control" id="inputAge" min="00" max="120" name="age">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputrad" class="form-label">ALB</label>
+        <input class="form-control" type="text" id="inputrad" placeholder="Albumin Blood Test" name="ALB">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputtex" class="form-label visually-hidden">ALP</label>
+        <input class="form-control" type="text" id="inputtex" placeholder="Alkaline phosphatase" name="ALP">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputperi" class="form-label visually-hidden">ALT</label>
+        <input class="form-control" type="text" id="inputperi" placeholder="Alanine Transaminase" name="ALT">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputarea" class="form-label visually-hidden">AST</label>
+        <input class="form-control" type="text" id="inputarea" placeholder="Aspartate Transaminase" name="AST">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputsmo" class="form-label visually-hidden">BIL</label>
+        <input class="form-control" type="text" id="inputsmo" placeholder="Bilirubin" name="BIL">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputsmo" class="form-label visually-hidden">CHE</label>
+        <input class="form-control" type="text" id="inputsmo" placeholder="Acetylcholinesterase" name="CHE">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputsmo" class="form-label visually-hidden">COL</label>
+        <input class="form-control" type="text" id="inputsmo" placeholder="Cholesterol" name="COL">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputsmo" class="form-label visually-hidden">CREA</label>
+        <input class="form-control" type="text" id="inputsmo" placeholder="Creatinine" name="CREA">
+      </div>
+      <div class="mb-3 col-4">
+        <label for="inputsmo" class="form-label visually-hidden">GGT</label>
+        <input class="form-control" type="text" id="inputsmo" placeholder="Gamma-Glutamyl Transferase" name="GGT">
+      </div>
+      <div class="mb-3 col-3">
+        <label for="inputsmo" class="form-label visually-hidden">PROT</label>
+        <input class="form-control" type="text" id="inputsmo" placeholder="Proteins" name="PROT">
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="save">
+          <label class="form-check-label" for="gridCheck">
+            Save Data
+          </label>
+        </div>
+      </div>
+      <div class="col-12 d-grid gap-2">
+        <button type="submit" class="btn btn-warning">Submit</button>
+      </div>
+    </form>
+    <script src="{{url_for('static',filename='jquery/jquery-3.6.4.min.js')}}" type="text/javascript"></script> 
+    <script src="{{url_for('static',filename='popper/popper.min.js')}}" type="text/javascript"></script> 
+    <script src="{{url_for('static',filename='bootstrap-5.3.0-alpha3-dist/js/bootstrap.min.js')}}" type="text/javascript"></script>  
+  </body>
+</html>
